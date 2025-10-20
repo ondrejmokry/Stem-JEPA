@@ -107,6 +107,9 @@ class MixStemsModule(LightningModule):
         latents = self.encoder(ctx)
         preds = self.predictor(latents, idx)
 
+        # print(f"Training step - ctx shape: {ctx.shape}, tgt shape: {tgt.shape}, idx: {idx}")
+        # print(f"Latents shape: {latents.shape}, preds shape: {preds.shape}")
+
         with torch.no_grad():
             targets = self.target_encoder(tgt)
 
